@@ -1,0 +1,25 @@
+package jdbc;
+
+import java.sql.*;
+
+public class JDBC {
+	public static void main (String [] args) throws Exception {
+	    public static void insertUsingPst() throws Exception{
+	    String url="jdbc:mysql://localhost:3306/jdbcdemo";
+		String name="root";
+		String pass ="root";
+		int id = 7  ;
+		String namee="jimbe";
+		int salary = 32114245;
+		String Query = "insert into employee values(?,?,?);";
+		Connection con = DriverManager.getConnection(url,name,pass);
+		PreparedStatement pst = con.prepareStatement(Query);
+		pst.setInt(1, id);
+		pst.setString(2,namee);
+		pst.setInt(3,salary);
+		int rows =pst.executeUpdate();
+		
+		System.out.println("now of rows affected "+ rows );
+		con.close();
+}
+}
