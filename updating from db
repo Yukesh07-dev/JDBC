@@ -1,0 +1,21 @@
+package jdbc;
+
+import java.sql.*;
+
+public class JDBC {
+	public static void main (String [] args) throws Exception {
+	    public static void update() throws Exception{
+		    String url="jdbc:mysql://localhost:3306/jdbcdemo";
+			String name="root";
+			String pass ="root";
+			
+			String Query = " update employee set salary=50000 where emp_id=5";
+			Connection con = DriverManager.getConnection(url,name,pass);
+			Statement st = con.createStatement();
+			int rows = st.executeUpdate(Query);
+			
+			System.out.println("now of rows affected "+ rows );
+			con.close();
+		    
+	}
+}
